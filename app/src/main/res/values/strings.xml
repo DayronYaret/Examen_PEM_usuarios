@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Examen PEM</string>
+    <string name="usernameLabel">Usuario</string>
+    <string name="surnameLabel">apellidos</string>
+    <string name="dniLabel">DNI</string>
+    <string name="ageLabel">edad</string>
+    <string name="jobLabel">profesion</string>
+    <string name="cvlabel">CV</string>
+    <string name="deleteLabel">eliminar</string>
+    <string name="addlabel">Añadir</string>
+    <string name="cvHint">CV</string>
+    <string name="nameHint">Nombre</string>
+</resources>

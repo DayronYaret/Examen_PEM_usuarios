@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "689716975458",
+    "firebase_url": "https://examenpem-5798d.firebaseio.com",
+    "project_id": "examenpem-5798d",
+    "storage_bucket": "examenpem-5798d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:689716975458:android:c2bb1547ef26604a69fe3b",
+        "android_client_info": {
+          "package_name": "es.ulpgc.romero.dayron.examenpem"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "689716975458-2vu0j0u9rv1s4d6uadcvc6vhtb57rt8n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAHBmb_PH7vkjG4JjKZRwlhQM6DjMxhpmw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "689716975458-2vu0j0u9rv1s4d6uadcvc6vhtb57rt8n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

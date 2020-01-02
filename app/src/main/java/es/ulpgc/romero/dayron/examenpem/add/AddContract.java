@@ -12,6 +12,8 @@ public interface AddContract {
     void displayData(AddViewModel viewModel);
     
     void finishActivity();
+
+    void displayError();
   }
 
   interface Presenter {

@@ -79,6 +79,11 @@ public class AddActivity
   }
 
   @Override
+  public void displayError() {
+    Toast.makeText(this, "Ese DNI ya existe, por lo que no se puede añadir el usuario", Toast.LENGTH_SHORT).show();
+  }
+
+  @Override
   public void injectPresenter(AddContract.Presenter presenter) {
     this.presenter = presenter;
   }

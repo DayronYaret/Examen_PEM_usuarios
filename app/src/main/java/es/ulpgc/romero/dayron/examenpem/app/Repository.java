@@ -37,9 +37,9 @@ public class Repository implements RepositoryContract {
   @Override
   public void fillArray(final FillArray callback) {
     /**
-    if(userDatabaseRef != null){
-      return;
-    }
+     if(userDatabaseRef != null){
+     return;
+     }
      **/
     userDatabaseRef = FirebaseDatabase.getInstance().getReference().child("usuarios");
     userDatabaseRef.addValueEventListener(new ValueEventListener() {
@@ -47,11 +47,11 @@ public class Repository implements RepositoryContract {
       public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
         usersList.clear();
-        for(DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()){
+        for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
           String nombre = (String) dataSnapshot1.child("nombre").getValue();
           String apellidos = (String) dataSnapshot1.child("apellidos").getValue();
           String dni = (String) dataSnapshot1.child("dni").getValue();
-          int edad = Integer.parseInt(String.valueOf(dataSnapshot1.child("edad").getValue())) ;
+          int edad = Integer.parseInt(String.valueOf(dataSnapshot1.child("edad").getValue()));
           String profesion = (String) dataSnapshot1.child("profesion").getValue();
           String cv = (String) dataSnapshot1.child("cv").getValue();
           User usuario = new User(nombre, apellidos, dni, profesion, cv, edad);
@@ -69,24 +69,53 @@ public class Repository implements RepositoryContract {
   }
 
   @Override
-  public void add(User usuario, final Add callback) {
-    DatabaseReference userRef = FirebaseDatabase.getInstance().getReference().child("usuarios");
-    userRef.child(usuario.getNombre().toLowerCase()).setValue(usuario).addOnCompleteListener(new OnCompleteListener<Void>() {
+  public void add(final User usuario, final Add callback) {
+    final DatabaseReference userRef = FirebaseDatabase.getInstance().getReference().child("usuarios");
+    userRef.addListenerForSingleValueEvent(new ValueEventListener() {
+      @Override
+      public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+        Log.d("Repo",String.valueOf(dataSnapshot.hasChild(usuario.getDni())));
+        if(dataSnapshot.hasChild(usuario.getDni())){
+          callback.onAdd(true);
+        }else{
+          userRef.child(usuario.getDni()).setValue(usuario).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+              if (task.isSuccessful()) {
+                callback.onAdd(false);
+              } else {
+                callback.onAdd(true);
+              }
+            }
+          });
+        }
+      }
+
+      @Override
+      public void onCancelled(@NonNull DatabaseError databaseError) {
+
+      }
+    });
+    /**
+    userRef.child(usuario.getDni()).setValue(usuario).addOnCompleteListener(new OnCompleteListener<Void>() {
       @Override
       public void onComplete(@NonNull Task<Void> task) {
-        if(task.isSuccessful()){
+        if (task.isSuccessful()) {
           callback.onAdd(false);
-        }else{
+        } else {
           callback.onAdd(true);
         }
       }
     });
+     **/
   }
+
 
   @Override
   public void delete(User usuario, final Delete callback) {
+    Log.d("repo", usuario.getDni());
     DatabaseReference userRef = FirebaseDatabase.getInstance().getReference().child("usuarios");
-    userRef.child(usuario.getNombre().toLowerCase()).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
+    userRef.child(usuario.getDni()).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
       @Override
       public void onComplete(@NonNull Task<Void> task) {
         if(task.isSuccessful()){

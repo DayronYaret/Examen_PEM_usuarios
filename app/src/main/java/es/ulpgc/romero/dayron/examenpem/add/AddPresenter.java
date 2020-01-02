@@ -56,6 +56,7 @@ public class AddPresenter implements AddContract.Presenter {
           view.get().finishActivity();
         }else{
           Log.d("pres2", "hubo un error añadiendo");
+          view.get().displayError();
         }
       }
     });

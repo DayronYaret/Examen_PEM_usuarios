@@ -20,7 +20,7 @@ public class AddModel implements AddContract.Model {
   @Override
   public String fetchData() {
     // Log.e(TAG, "fetchData()");
-    return "Hello";
+    return "Hell";
   }
 
   @Override

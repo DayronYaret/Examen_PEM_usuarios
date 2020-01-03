@@ -74,7 +74,7 @@ public class Repository implements RepositoryContract {
     userRef.addListenerForSingleValueEvent(new ValueEventListener() {
       @Override
       public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-        Log.d("Repo",String.valueOf(dataSnapshot.hasChild(usuario.getDni())));
+        Log.d("Repo",String.valueOf(dataSnapshot.hasChild(usuario.getDni().toUpperCase().trim())));
         if(dataSnapshot.hasChild(usuario.getDni())){
           callback.onAdd(true);
         }else{

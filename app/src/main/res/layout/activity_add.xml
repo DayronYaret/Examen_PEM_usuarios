@@ -65,7 +65,8 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="@string/rateHint"
-            android:inputType="number" />
+            android:inputType="number"
+            android:maxLength="2"/>
 
         <Button
             android:id="@+id/addButton"

@@ -22,6 +22,7 @@ public class AppMediator extends Application {
     addState = new AddState();
     masterState = new MasterState();
     detailState = new DetailState();
+    //Comentario para ver si el comit desde el protatil esta bien
 
   }
 

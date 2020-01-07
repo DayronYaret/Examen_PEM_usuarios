@@ -25,13 +25,13 @@ public interface AddContract {
 
     void fetchData();
 
-    void add(String userName, String userSurname, String userAge, String userDNI, String userJob, String userCV);
+    void add(String userName, String userSurname, String userAge, String userDNI, String userJob, String userCV, String rate);
     
   }
 
   interface Model {
     String fetchData();
-    void add(String userName, String userSurname, String userAge, String userDNI, String userJob, String userCV, RepositoryContract.Add callback);
+    void add(String userName, String userSurname, String userAge, String userDNI, String userJob, String userCV, String rate, RepositoryContract.Add callback);
   }
 
   interface Router {

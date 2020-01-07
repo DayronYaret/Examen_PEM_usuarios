@@ -16,9 +16,9 @@ public class AddActivity
 
   public static String TAG = AddActivity.class.getSimpleName();
 
-  private EditText nombre, apellidos, edad, dni, profesion, cv;
+  private EditText nombre, apellidos, edad, dni, profesion, cv, rate;
   private Button add;
-  private String userName, userSurname, userAge, userDNI, userJob, userCV;
+  private String userName, userSurname, userAge, userDNI, userJob, userCV, userRate;
   private AddContract.Presenter presenter;
 
   @Override
@@ -31,6 +31,7 @@ public class AddActivity
     dni = findViewById(R.id.dniEditText);
     profesion = findViewById(R.id.jobEditText);
     cv = findViewById(R.id.cvEditText);
+    rate = findViewById(R.id.ratingEditText);
     add = findViewById(R.id.addButton);
 
 
@@ -43,11 +44,12 @@ public class AddActivity
         userDNI = dni.getText().toString();
         userJob = profesion.getText().toString();
         userCV = cv.getText().toString();
+        userRate = rate.getText().toString();
         Log.d("activity", userName);
-        if(userName.equals("") || userSurname.equals("")|| userAge.equals("")|| userJob.equals("")|| userDNI.equals("")|| userCV.equals("")) {
+        if(userName.equals("") || userSurname.equals("")|| userAge.equals("")|| userJob.equals("")|| userDNI.equals("")|| userCV.equals("")|| userRate.equals("")) {
           Toast.makeText(AddActivity.this, "Rellene todos los campos porfavor", Toast.LENGTH_SHORT).show();
         }else{
-          presenter.add(userName, userSurname, userAge, userDNI, userJob, userCV);
+          presenter.add(userName, userSurname, userAge, userDNI, userJob, userCV, userRate);
 
         }
 

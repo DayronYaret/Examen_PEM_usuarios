@@ -14,7 +14,7 @@ public class DetailActivity
   public static String TAG = DetailActivity.class.getSimpleName();
 
   private DetailContract.Presenter presenter;
-  private TextView nombre, apellido, profesion, edad, dni, cv;
+  private TextView nombre, apellido, profesion, edad, dni, cv, rate;
   private Button delete;
 
   @Override
@@ -27,6 +27,7 @@ public class DetailActivity
     edad = findViewById(R.id.ageTextView);
     dni = findViewById(R.id.dniTextView);
     cv = findViewById(R.id.cvTextView);
+    rate = findViewById(R.id.ratingTextView);
     delete = findViewById(R.id.deleteButton);
 
     delete.setOnClickListener(new View.OnClickListener() {
@@ -59,6 +60,7 @@ public class DetailActivity
     dni.setText(viewModel.user.getDni());
     profesion.setText(viewModel.user.getProfesion());
     cv.setText(viewModel.user.getCv());
+    rate.setText("Rating: "+String.valueOf(viewModel.user.getValoracion()));
   }
 
   @Override

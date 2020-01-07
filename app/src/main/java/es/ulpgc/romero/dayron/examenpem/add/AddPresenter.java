@@ -48,8 +48,8 @@ public class AddPresenter implements AddContract.Presenter {
   }
 
   @Override
-  public void add(String userName, String userSurname, String userAge, String userDNI, String userJob, String userCV) {
-    model.add(userName, userSurname, userAge, userDNI, userJob, userCV, new RepositoryContract.Add() {
+  public void add(String userName, String userSurname, String userAge, String userDNI, String userJob, String userCV, String userRate) {
+    model.add(userName, userSurname, userAge, userDNI, userJob, userCV, userRate, new RepositoryContract.Add() {
       @Override
       public void onAdd(boolean error) {
         if(error == false){

@@ -2,15 +2,16 @@ package es.ulpgc.romero.dayron.examenpem.app;
 
 public class User {
   private String nombre, apellidos, dni, profesion, cv;
-  private int edad;
+  private int edad, valoracion;
 
-  public User(String nombre, String apellido, String dni, String profesion, String cv, int edad) {
+  public User(String nombre, String apellido, String dni, String profesion, String cv, int edad, int valoracion) {
     this.nombre = nombre;
     this.apellidos = apellido;
     this.dni = dni;
     this.profesion = profesion;
     this.cv = cv;
     this.edad = edad;
+    this.valoracion = valoracion;
   }
 
   public String getNombre() {
@@ -59,5 +60,13 @@ public class User {
 
   public void setEdad(int edad) {
     this.edad = edad;
+  }
+
+  public int getValoracion() {
+    return valoracion;
+  }
+
+  public void setValoracion(int valoracion) {
+    this.valoracion = valoracion;
   }
 }

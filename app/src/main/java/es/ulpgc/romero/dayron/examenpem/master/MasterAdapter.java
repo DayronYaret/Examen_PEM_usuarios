@@ -33,10 +33,12 @@ public class MasterAdapter extends  RecyclerView.Adapter<MasterAdapter.ViewHolde
 
   class ViewHolder extends RecyclerView.ViewHolder {
     final TextView titleView;
+    final TextView rateView;
 
     ViewHolder(View view) {
       super(view);
       titleView = view.findViewById(R.id.textViewUser);
+      rateView = view.findViewById(R.id.ratingTextView2);
 
     }
   }
@@ -60,6 +62,7 @@ public class MasterAdapter extends  RecyclerView.Adapter<MasterAdapter.ViewHolde
     holder.itemView.setOnClickListener(clickListener);
     Log.d("Adapter2", usersItemList.get(position).getNombre());
     holder.titleView.setText(usersItemList.get(position).getNombre());
+    holder.rateView.setText("Rating:"+String.valueOf(usersItemList.get(position).getValoracion()));
   }
 
 

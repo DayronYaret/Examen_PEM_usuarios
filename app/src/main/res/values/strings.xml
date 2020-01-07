@@ -10,4 +10,5 @@
     <string name="addlabel">Añadir</string>
     <string name="cvHint">CV</string>
     <string name="nameHint">Nombre</string>
+    <string name="rateHint">Valoracion</string>
 </resources>

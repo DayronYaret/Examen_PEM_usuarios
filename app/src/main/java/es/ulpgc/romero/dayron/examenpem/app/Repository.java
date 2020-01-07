@@ -54,9 +54,11 @@ public class Repository implements RepositoryContract {
           int edad = Integer.parseInt(String.valueOf(dataSnapshot1.child("edad").getValue()));
           String profesion = (String) dataSnapshot1.child("profesion").getValue();
           String cv = (String) dataSnapshot1.child("cv").getValue();
-          User usuario = new User(nombre, apellidos, dni, profesion, cv, edad);
+          //Log.d("Repo", String.valueOf(dataSnapshot.child("valoracion").getValue()));
+          int rate = Integer.parseInt(String.valueOf(dataSnapshot1.child("valoracion").getValue()));
+          User usuario = new User(nombre, apellidos, dni, profesion, cv, edad, rate );
           usersList.add(usuario);
-          //Log.d("repo", String.valueOf(usuario.getEdad()));
+          Log.d("repo", String.valueOf(usuario.getValoracion()));
         }
         callback.onFillArray(false, usersList);
       }

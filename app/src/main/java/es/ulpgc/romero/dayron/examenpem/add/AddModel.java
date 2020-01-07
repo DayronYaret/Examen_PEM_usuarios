@@ -24,9 +24,10 @@ public class AddModel implements AddContract.Model {
   }
 
   @Override
-  public void add(String userName, String userSurname, String userAge, String userDNI, String userJob, String userCV, RepositoryContract.Add callback) {
+  public void add(String userName, String userSurname, String userAge, String userDNI, String userJob, String userCV, String userRate, RepositoryContract.Add callback) {
     int age = Integer.parseInt(userAge);
-    User usuario = new User(userName, userSurname, userDNI.toUpperCase().trim(), userJob, userCV, age);
+    int rate = Integer.parseInt(userRate);
+    User usuario = new User(userName, userSurname, userDNI.toUpperCase().trim(), userJob, userCV, age, rate);
     repository.add(usuario, callback);
   }
 }
